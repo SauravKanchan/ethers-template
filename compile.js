@@ -62,7 +62,10 @@ if(shouldBuild) {
     for(let key in output.contracts[contractFile]) {
       fs.outputJsonSync(
         path.resolve(buildFolderPath, `${key}.json`),
-        output.contracts[contractFile][key]["abi"]
+        {
+          abi: output.contracts[contractFile][key]["abi"],
+          evm: output.contracts[contractFile][key]["evm"]
+        }
       );
     }
   }
