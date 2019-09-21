@@ -2,22 +2,21 @@ const startTimestamp = Date.now();
 const ethers = require('ethers');
 const provider = ethers.getDefaultProvider('kovan');
 
-//24C4FE6063E62710EAD956611B71825B778B041B18ED53118CE5DA5F02E494BA
-
 console.log('\nPlease wait loading wallet...');
-const wallet = new ethers.Wallet("24C4FE6063E62710EAD956611B71825B778B041B18ED53118CE5DA5F02E494BA", provider);
-console.log(`Loaded wallet @ ${wallet.address}`);
+const wallet = new ethers.Wallet(process.argv[3], provider);
+console.log(`Loaded wallet ${wallet.address}`);
 
-const LBjson = require('./build/ERC20.json');
-let lbInstance;
+let compiled = require(`./build/${process.argv[2]}.json`);
 
 (async() => {
-  console.log('\nDeploying Lend and Borrow Contract...');
-  const LBContract = new ethers.ContractFactory(
-    LBjson.abi,
-    LBjson.evm.bytecode.object,
+  console.log(`\nDeploying ${process.argv[2]}...`);
+  let contract = new ethers.ContractFactory(
+    compiled.abi,
+    compiled.evm.bytecode.object,
     wallet
   );
-  lbInstance =  await LBContract.deploy();
-  console.log(`deployed at ${lbInstance.address}`)
+
+  let instance =  await contract.deploy();
+  console.log(`deployed at ${instance.address}`)
+
 })();
