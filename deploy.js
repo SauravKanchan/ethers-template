@@ -21,12 +21,16 @@ let compiled = require(`./build/${process.argv[2]}.json`);
   let instance =  await contract.deploy();
   console.log(`deployed at ${instance.address}`)
   config[`${process.argv[2]}`] = instance.address
-  console.log("Waiting for deployment transaction to get confirmed")
+  console.log("Waiting for the contract to get mined...")
   await instance.deployed()
-  console.log("Deployment transaction confirmed")
+  console.log("Contract deployed")
   fs.outputJsonSync(
     'config.json',
-    config
+    config,
+    {
+      spaces:2,
+      EOL: "\n" 
+    }
   );
 
 })();

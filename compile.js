@@ -66,6 +66,10 @@ if(shouldBuild) {
         {
           abi: output.contracts[contractFile][key]["abi"],
           bytecode: output.contracts[contractFile][key]["evm"]["bytecode"]["object"]
+        },
+        {
+          spaces:2,
+          EOL: "\n" 
         }
       );
     }
