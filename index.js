@@ -1,4 +1,5 @@
 const ethers = require('ethers');
+const config = require('./config.json');
 
 // Import the json file from build to get the abi
 const erc_json = require('./build/ERC20.json');
@@ -9,12 +10,12 @@ const erc_json = require('./build/ERC20.json');
 //  - "ropsten"
 //  - "kovan"
 //  - "goerli"
-const provider = ethers.getDefaultProvider('kovan');
+const provider = ethers.getDefaultProvider(config['network']);
 
 // Make a wallet instance using private key and provider
-const wallet = new ethers.Wallet("24C4FE6063E62710EAD956611B71825B778B041B18ED53118CE5DA5F02E494BA", provider);
+const wallet = new ethers.Wallet(config['private_key'] , provider);
 
-const address = "0x685c96893211bdAE3f73D41af778A818D1b26875"
+const address = config["ERC20"] 
 const abi = erc_json.abi
 
 const erc20 = new ethers.Contract( address , abi , wallet );

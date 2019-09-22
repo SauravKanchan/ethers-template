@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs-extra');
 const solc = require('solc');
+const config = require('./config.json');
 
 const sourceFolderPath = path.resolve(__dirname, 'contracts');
 const buildFolderPath = path.resolve(__dirname, 'build');
@@ -64,7 +65,7 @@ if(shouldBuild) {
         path.resolve(buildFolderPath, `${key}.json`),
         {
           abi: output.contracts[contractFile][key]["abi"],
-          evm: output.contracts[contractFile][key]["evm"]
+          bytecode: output.contracts[contractFile][key]["evm"]["bytecode"]["object"]
         }
       );
     }

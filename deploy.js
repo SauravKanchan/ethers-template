@@ -1,22 +1,29 @@
 const startTimestamp = Date.now();
 const ethers = require('ethers');
-const provider = ethers.getDefaultProvider('kovan');
+const config = require('./config.json');
+const fs = require('fs-extra');
 
-console.log('\nPlease wait loading wallet...');
-const wallet = new ethers.Wallet(process.argv[3], provider);
+const provider = ethers.getDefaultProvider(config["network"]);
+
+const wallet = new ethers.Wallet(config["private_key"], provider);
 console.log(`Loaded wallet ${wallet.address}`);
 
 let compiled = require(`./build/${process.argv[2]}.json`);
 
 (async() => {
-  console.log(`\nDeploying ${process.argv[2]}...`);
+  console.log(`\nDeploying ${process.argv[2]} in ${config["network"]}...`);
   let contract = new ethers.ContractFactory(
     compiled.abi,
-    compiled.evm.bytecode.object,
+    compiled.bytecode,
     wallet
   );
 
   let instance =  await contract.deploy();
   console.log(`deployed at ${instance.address}`)
+  config[`${process.argv[2]}`] = instance.address
+  fs.outputJsonSync(
+    'config.json',
+    config
+  );
 
 })();
