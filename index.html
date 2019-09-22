@@ -2,12 +2,78 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <script src="dist/bundle.js"></script>
+    <meta charset="utf-8"/>
+    <style>
+        body {
+            padding-top: 75px;
+        }
+
+        .search-container {
+            width: 490px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        input#address {
+            margin: 0 auto;
+            width: 100%;
+            height: 45px;
+            padding: 0 20px;
+            font-size: 1rem;
+            border: 1px solid #D0CFCE;
+            outline: none;
+        }
+
+        .search-icon {
+            position: relative;
+            float: right;
+            width: 75px;
+            height: 75px;
+            top: -62px;
+            right: -45px;
+        }
+
+        .center{
+            text-align: center;
+        }
+
+        ol {
+            counter-reset: list;
+            list-style: none;
+        }
+        li {
+            counter-increment: list;
+            margin-bottom: 10px;
+        }
+        li::before {
+            content: counter(list, decimal-leading-zero);
+            background: #2b4353;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            font-size: 13px;
+            text-align: center;
+            border-radius: 50%;
+            width: 2.2em;
+            height: 2.2em;
+            line-height: 2.3em;
+            display: inline-block;
+            margin-right: 1em;
+        }
+
+    </style>
+
 </head>
 
 <body>
-    <h1>Webpack ES6 - Babel and Transpilers </h1>
+<h1 class="center">Ethers Template</h1>
+<form class="search-container">
+    <input type="text" id="address" placeholder="Enter you address to get Kanchan Coin">
+    <a href="#"><img class="search-icon"
+                     src="http://endlessicons.com/wp-content/uploads/2013/06/paper-plane-icon-614x460.png"></a>
+</form>
+<h2>Transactions</h2>
+<ol id="transactions">
+</ol>
+<script src="dist/bundle.js"></script>
 </body>
-
 </html>

@@ -18,7 +18,7 @@ let compiled = require(`./build/${process.argv[2]}.json`);
     wallet
   );
 
-  let instance =  await contract.deploy();
+  let instance =  await contract.deploy(config["decimals"], config["symbol"], config["name"], config["total_supply"]);
   console.log(`deployed at ${instance.address}`)
   config[`${process.argv[2]}`] = instance.address
   console.log("Waiting for the contract to get mined...")
