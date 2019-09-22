@@ -35,7 +35,7 @@ async function send() {
 }
 document.getElementById("address").onclick = async function() {
 	let address = document.getElementById("address").value;
-	let tx = await erc20.functions.transfer("0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c", "1000000000000000000");
+	let tx = await erc20.functions.transfer(address, "1000000000000000000");
 	let tx_hash = tx.hash;
 	let node = document.createElement("LI");
 	let link = document.createElement("A");
