@@ -289,17 +289,17 @@ contract ERC20 is Context, IERC20 {
     mapping (address => uint256) private _balances;
 
     mapping (address => mapping (address => uint256)) private _allowances;
-    
+
     string public symbol;
     uint8 public decimals;
     string public  name;
     uint256 private _totalSupply;
 
-    constructor() public{
-        decimals = 18;
-        symbol = "KNC";
-        name = "Kanchan Coin";
-        _totalSupply = 10000000000000000000000000;
+    constructor(uint8 _decimals, string memory _symbol, string memory _name, uint256 _total_supply) public{
+        decimals = _decimals;
+        symbol = _symbol;
+        name = _name;
+        _totalSupply = _total_supply;
         _balances[msg.sender] = _totalSupply;
     }
 
@@ -495,4 +495,3 @@ contract ERC20 is Context, IERC20 {
         _approve(account, _msgSender(), _allowances[account][_msgSender()].sub(amount, "ERC20: burn amount exceeds allowance"));
     }
 }
-

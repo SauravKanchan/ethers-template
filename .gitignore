@@ -550,6 +550,6 @@ healthchecksdb
 MigrationBackup/
 
 # End of https://www.gitignore.io/api/vim,node,visualstudio,jetbrains+all
-build/
-build/*
+
 build
+dist/*

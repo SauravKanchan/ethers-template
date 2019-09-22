@@ -4,7 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "node compile.js && node deploy.js ERC20 && node index.js",
+    "deploy": "node compile.js && node deploy.js ERC20",
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
