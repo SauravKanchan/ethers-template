@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8"/>
     <title>Ethers Template</title>
@@ -8,13 +7,11 @@
         body {
             padding-top: 75px;
         }
-
         .search-container {
             width: 490px;
             display: block;
             margin: 0 auto;
         }
-
         input#address {
             margin: 0 auto;
             width: 100%;
@@ -24,20 +21,9 @@
             border: 1px solid #D0CFCE;
             outline: none;
         }
-
-        .search-icon {
-            position: relative;
-            float: right;
-            width: 75px;
-            height: 75px;
-            top: -62px;
-            right: -45px;
-        }
-
         .center{
             text-align: center;
         }
-
         ol {
             counter-reset: list;
             list-style: none;
@@ -60,18 +46,17 @@
             display: inline-block;
             margin-right: 1em;
         }
-
     </style>
-
 </head>
 
 <body>
 <h1 class="center">Ethers Template</h1>
-<form class="search-container">
-    <input type="text" id="address" placeholder="Enter you address to get Kanchan Coin">
-    <a href="#"><img class="search-icon"
-                     src="http://endlessicons.com/wp-content/uploads/2013/06/paper-plane-icon-614x460.png"></a>
+<form class="search-container" id="send">
+    <input type="text" id="address" placeholder="Enter you address to get kanchan Coin">
+    <button  type="submit">Send</button>
 </form>
+<h2>Status:</h2>
+<p id="status"></p>
 <h2>Transactions</h2>
 <ol id="transactions">
 </ol>

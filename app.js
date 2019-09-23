@@ -20,10 +20,12 @@ const abi = erc_json.abi;
 
 erc20 = new ethers.Contract( address , abi , wallet );
 
-document.getElementById("address").onclick = async function() {
-	let address = document.getElementById("address").value;
+document.getElementById("send").onsubmit = async function(e) {
+    e.preventDefault();
+    let address = document.getElementById("address").value;
+    document.getElementById("status").innerText = "Waiting for transaction...";
 	let tx = await erc20.functions.transfer(address, "1000000000000000000");
-	let tx_hash = tx.hash;
+    let tx_hash = tx.hash;
 	let node = document.createElement("LI");
 	let link = document.createElement("A");
 	link.target = "_blank";
@@ -32,4 +34,6 @@ document.getElementById("address").onclick = async function() {
 	link.appendChild(textnode);
 	node.appendChild(link);
 	document.getElementById("transactions").appendChild(node);
+    document.getElementById("status").innerText = "Tranasaction confirmed";
+    return false;
 };
