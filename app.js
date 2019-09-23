@@ -23,7 +23,7 @@ erc20 = new ethers.Contract( address , abi , wallet );
 document.getElementById("send").onsubmit = async function(e) {
     e.preventDefault();
     let address = document.getElementById("address").value;
-    document.getElementById("status").innerText = "Waiting for transaction...";
+    document.getElementById("status").innerText = "Waiting for transaction to get published...";
 	let tx = await erc20.functions.transfer(address, "1000000000000000000");
     let tx_hash = tx.hash;
 	let node = document.createElement("LI");
@@ -34,6 +34,8 @@ document.getElementById("send").onsubmit = async function(e) {
 	link.appendChild(textnode);
 	node.appendChild(link);
 	document.getElementById("transactions").appendChild(node);
-    document.getElementById("status").innerText = "Tranasaction confirmed";
+    document.getElementById("status").innerText = "Waiting for transaction to be mined...";
+    await tx.wait();
+    document.getElementById("status").innerText = "Transaction confirmed";
     return false;
 };
