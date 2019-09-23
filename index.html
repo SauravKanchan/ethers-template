@@ -1,17 +1,19 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <title>Ethers Template</title>
-    <style>
-        body {
-            padding-top: 75px;
-        }
+    <head>
+        <meta charset="utf-8"/>
+        <title>Ethers Template</title>
+        <style>
+body {
+    padding-top: 75px;
+}
+
         .search-container {
             width: 490px;
             display: block;
             margin: 0 auto;
         }
+
         input#address {
             margin: 0 auto;
             width: 100%;
@@ -21,17 +23,21 @@
             border: 1px solid #D0CFCE;
             outline: none;
         }
-        .center{
+
+        .center {
             text-align: center;
         }
+
         ol {
             counter-reset: list;
             list-style: none;
         }
+
         li {
             counter-increment: list;
             margin-bottom: 10px;
         }
+
         li::before {
             content: counter(list, decimal-leading-zero);
             background: #2b4353;
@@ -46,6 +52,7 @@
             display: inline-block;
             margin-right: 1em;
         }
+
         .button {
             background-color: #4CAF50;
             border: none;
@@ -55,25 +62,25 @@
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            margin: 4px 2px;
+            margin: 19px;
             cursor: pointer;
         }
-    </style>
-</head>
+        </style>
+    </head>
 
-<body>
-<h1 class="center">Ethers Template</h1>
-<form class="search-container" id="send">
-    <input type="text" id="address" placeholder="Enter you address to get kanchan Coin">
-    <div class="wrapper center">
-    <button  type="submit" class="button" >Send</button>
-    </div>
-</form>
-<h2>Status:</h2>
-<p id="status"></p>
-<h2>Transactions</h2>
-<ol id="transactions">
-</ol>
-<script src="dist/bundle.js"></script>
-</body>
+    <body>
+        <div class="center">
+            <h1>Ethers Template</h1>
+            <form class="search-container" id="send">
+                <input type="text" id="address" placeholder="Enter you address to get kanchan Coin">
+                <button type="submit" class="button">Send</button>
+            </form>
+            <h2>Status:</h2>
+            <p id="status"></p>
+            <h2>Transactions</h2>
+            <ol id="transactions">
+            </ol>
+        </div>
+        <script src="dist/bundle.js"></script>
+    </body>
 </html>
