@@ -1,4 +1,5 @@
 # Ethers Template
+[![Build Status](https://travis-ci.com/SauravKanchan/ethers-template.svg?token=2yjAythLGDwdY1XXtyDa&branch=master)](https://travis-ci.com/SauravKanchan/ethers-template)
 
 ```shell script
 git clone https://github.com/SauravKanchan/ethers-template.git
