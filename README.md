@@ -11,3 +11,4 @@ In config.json replace name, symbol, decimals as per your requirement and run th
 npm run deploy
 npm run build
 ``` 
+To know detailed information about the project you can read this [article](https://medium.com/@sauravnk30/compiling-deploying-and-interacting-with-smart-contract-using-javascript-641cf0342824)
