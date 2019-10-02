@@ -10,12 +10,12 @@ const ErcJson = require("./build/ERC20.json"); //import the json of the contract
 //  - "ropsten"
 //  - "kovan"
 //  - "goerli"
-const provider = ethers.getDefaultProvider(config["network"]);
+const provider = ethers.getDefaultProvider(config.network);
 
 // Make a wallet instance using private key and provider
-const wallet = new ethers.Wallet(config["private_key"], provider);
+const wallet = new ethers.Wallet(config.private_key, provider);
 
-const address = config["ERC20"];
+const address = config.ERC20;
 const abi = ErcJson.abi;
 
 // Contract Instance with signer
@@ -30,7 +30,7 @@ document.getElementById("send").onsubmit = async function (e) {
     let node = document.createElement("LI");
     let link = document.createElement("A");
     link.target = "_blank";
-    link.href = `https://${config["network"]}.etherscan.io/tx/` + TxHash;
+    link.href = `https://${config.network}.etherscan.io/tx/` + TxHash;
     let textnode = document.createTextNode(TxHash);
     link.appendChild(textnode);
     node.appendChild(link);

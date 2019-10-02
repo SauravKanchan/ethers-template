@@ -1,15 +1,13 @@
 const path = require("path");
 const fs = require("fs-extra");
 const solc = require("solc");
-const config = require("./config.json");
 
 const sourceFolderPath = path.resolve(__dirname, "contracts");
 const buildFolderPath = path.resolve(__dirname, "build");
 
 const getContractSource = contractFileName => {
     const contractPath = path.resolve(__dirname, "contracts", contractFileName);
-    const source = fs.readFileSync(contractPath, "utf8");
-    return source;
+    return fs.readFileSync(contractPath, "utf8");
 };
 
 let sources = {};
@@ -59,22 +57,26 @@ if (shouldBuild) {
     fs.ensureDirSync(buildFolderPath);
 
     for (let contractFile in output.contracts) {
-        for (let key in output.contracts[contractFile]) {
-            fs.outputJsonSync(
-                path.resolve(buildFolderPath, `${key}.json`),
-                {
-                    abi: output.contracts[contractFile][key]["abi"],
-                    bytecode: output.contracts[contractFile][key]["evm"]["bytecode"]["object"]
-                },
-                {
-                    spaces: 2,
-                    EOL: "\n"
+        if ({}.hasOwnProperty.call(output.contracts, contractFile)) {
+            let OutputFile = output.contracts[contractFile];
+            for (let key in OutputFile) {
+                if ({}.hasOwnProperty.call(OutputFile, key)) {
+                    fs.outputJsonSync(
+                        path.resolve(buildFolderPath, `${key}.json`),
+                        {
+                            abi: OutputFile[key].abi,
+                            bytecode: OutputFile[key].evm.bytecode.object
+                        },
+                        {
+                            spaces: 2,
+                            EOL: "\n"
+                        }
+                    );
                 }
-            );
+            }
         }
     }
     console.info("Build finished successfully!\n");
 } else {
     console.error("\nBuild failed\n");
 }
-
