@@ -147,7 +147,7 @@ typings/
 # Optional REPL history
 .node_repl_history
 
-# Output of 'npm pack'
+# Output of "npm pack"
 *.tgz
 
 # Yarn Integrity file
@@ -236,7 +236,7 @@ bld/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
-# Uncomment if you have tasks that create the project's static files in wwwroot
+# Uncomment if you have tasks that create the project"s static files in wwwroot
 #wwwroot/
 
 # Visual Studio 2017 auto generated files
@@ -397,7 +397,7 @@ PublishScripts/
 !**/[Pp]ackages/build/
 # Uncomment if necessary however generally it will be regenerated when needed
 #!**/[Pp]ackages/repositories.config
-# NuGet v3's project.json files produces more ignorable files
+# NuGet v3"s project.json files produces more ignorable files
 *.nuget.props
 *.nuget.targets
 
@@ -516,7 +516,7 @@ __pycache__/
 # Tabs Studio
 *.tss
 
-# Telerik's JustMock configuration file
+# Telerik"s JustMock configuration file
 *.jmconfig
 
 # BizTalk build output

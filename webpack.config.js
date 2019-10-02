@@ -1,15 +1,15 @@
 const path = require("path");
 const webpack = require("webpack");
-const webpack_rules = [];
+const WebpackRules = [];
 const webpackOption = {
-    entry: ['babel-polyfill', './app.js'],
+    entry: ["babel-polyfill", "./app.js"],
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "bundle.js", 
-        publicPath: "" 
+        filename: "bundle.js",
+        publicPath: ""
     },
     module: {
-        rules: webpack_rules
+        rules: WebpackRules
     }
 };
 let babelLoader = {
@@ -22,5 +22,5 @@ let babelLoader = {
         }
     }
 };
-webpack_rules.push(babelLoader);
+WebpackRules.push(babelLoader);
 module.exports = webpackOption;

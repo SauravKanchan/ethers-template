@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8"/>
-        <title>Ethers Template</title>
-        <style>
-body {
-    padding-top: 75px;
-}
+<head>
+    <meta charset="utf-8"/>
+    <title>Ethers Template</title>
+    <style>
+        body {
+            padding-top: 75px;
+        }
 
         .search-container {
             width: 490px;
@@ -65,32 +65,36 @@ body {
             margin: 19px;
             cursor: pointer;
         }
-        </style>
-    </head>
+    </style>
+</head>
 
-    <body>
-        <div class="center">
-            <h1>Ethers Template</h1>
-            <form class="search-container" id="send">
-                <input type="text" id="address" placeholder="Enter you address to get kanchan Coin">
-                <button type="submit" class="button">Send</button>
-            </form>
-            <h2>Status:</h2>
-            <p id="status"></p>
-            <h2>Transactions</h2>
-            <ol id="transactions">
-            </ol>
-        </div>
-        <script src="dist/bundle.js"></script>
+<body>
+<div class="center">
+    <h1>Ethers Template</h1>
+    <form class="search-container" id="send">
+        <input type="text" id="address" placeholder="Enter you address to get kanchan Coin">
+        <button type="submit" class="button">Send</button>
+    </form>
+    <h2>Status:</h2>
+    <p id="status"></p>
+    <h2>Transactions</h2>
+    <ol id="transactions">
+    </ol>
+</div>
+<script src="dist/bundle.js"></script>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148464118-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'UA-148464118-1');
-    </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148464118-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
 
-    </body>
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+    gtag("config", "UA-148464118-1");
+</script>
+
+</body>
 </html>
